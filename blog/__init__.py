@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
-from .blueprints.lists import lists_bp 
+from .blueprints.lists import lists_bp
+from .blueprints.home import home_bp
+from .blueprints.tasks import tasks_bp
+
 import os
 
 from flask import Flask
@@ -29,19 +32,20 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
-
     # import helper DB functions
     from . import db
     db.init_app(app)
 
-    # # register the 'list' blueprint
-    # from .blueprints.lists import lists_bp
-    # app.register_blueprint(lists_bp)
+    # register the 'list' blueprint
+    from .blueprints.lists import lists_bp
+    app.register_blueprint(lists_bp)
     
+    from .blueprints.home import home_bp
+    app.register_blueprint(home_bp)
+
+    from .blueprints.tasks import tasks_bp
+    app.register_blueprint(tasks_bp)
+
     return app
 
 

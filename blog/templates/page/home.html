@@ -10,12 +10,12 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-11">
-                    <a href="{{url_for('view_list',index=key)}}"> {{key}}: {{value['name']}} </a>
+                    <a href="{{url_for('lists.view_list',index=key)}}"> {{key}}: {{value['name']}} </a>
                 </div>
 
                 <div class="col">
                     <!-- delete list -->
-                    <a href="{{url_for('remove_list',index=key)}}">
+                    <a href="{{url_for('lists.remove_list',index=key)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -26,7 +26,7 @@
                     </a>
                     
                     <!-- edit list -->
-                    <a href="{{url_for('edit_list',index=key)}}">
+                    <a href="{{url_for('lists.edit_list',index=key)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
                         viewBox="0 0 16 16">
                         <path
@@ -39,7 +39,7 @@
             <ul>
                 <li>created at: {{value['created_at']}}</li>
             </ul>
-            <a href="{{url_for('new_task')}}" class="color-info font-size small">+ add task</a>
+            <a href="{{url_for('tasks.new_task')}}" class="color-info font-size small">+ add task</a>
         </li>
         {%endfor%}
         </ul>
@@ -59,12 +59,12 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-11">
-                    <a href="{{url_for('view_task',index=key)}}"> {{key}}: {{value['name']}} </a>
+                    <a href="{{url_for('tasks.view_task',index=key)}}"> {{key}}: {{value['name']}} </a>
                 </div>
 
                 <div class="col">
                     <!-- delete task -->
-                    <a href="{{url_for('remove_task',index=key)}}">
+                    <a href="{{url_for('tasks.remove_task',index=key)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -75,7 +75,7 @@
                     </a>
                     
                     <!-- edit list -->
-                    <a href="{{url_for('edit_task',index=key)}}">
+                    <a href="{{url_for('tasks.edit_task',index=key)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
                         viewBox="0 0 16 16">
                         <path
@@ -88,7 +88,7 @@
             <ul>
                 <li>created at: {{value['created_at']}}</li>
             </ul>
-            <a href="{{url_for('new_task')}}" class="color-info font-size small">+ add task</a>
+            <a href="{{url_for('tasks.new_task')}}" class="color-info font-size small">+ add task</a>
         </li>
         {%endfor%}
     </ul>
