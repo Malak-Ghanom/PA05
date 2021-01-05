@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for
 from blog.db import get_db
 
 # define our blueprint
@@ -24,13 +24,13 @@ def add_user():
         # insert user into DB
         try:
             # execute our insert SQL statement
-            db.execute("INSERT INTO user (username, password) VALUES (?, ?);", (username, password))
-            db.execute("INSERT INTO user (firstname, lastname) VALUES (?, ?);", (first_name, last_name))
+            db.execute("INSERT INTO user (username, password, firstname, lastname) VALUES (?, ?, ?, ?);", (username, password, first_name,last_name))
 
             # write changes to DB
             db.commit()
             
-            return redirect("/users")
+            return redirect(url_for('/home'))
+
 
         except sqlite3.Error as er:
             print('SQLite error: %s' % (' '.join(er.args)))
