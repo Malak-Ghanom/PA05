@@ -1,0 +1,15 @@
+{%extends 'page/base.html'%}
+
+{%block main%}
+
+<h3>{{view_task['name'] | title}}</h3> <br>
+
+<ul>
+    {%for key,value in view_task.items()%}
+    <li class="list-group-item">
+        {{key | title}}: {{value}}
+    </li>
+
+    {%endfor%}
+</ul>
+{%endblock%}

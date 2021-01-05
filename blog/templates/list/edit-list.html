@@ -1,0 +1,18 @@
+{%extends 'page/base.html'%}
+
+{%block main%}
+
+<h3>{{view_list['name'] | title}}</h3> <br>
+
+<form method="POST">
+    <div class="row">
+        <div class="col">
+            <input name="new_name" type="text" class="form-control" placeholder="New Name">
+        </div>
+        <div class="col">
+            <button type="submit">Add</button>
+        </div>
+    </div>
+
+</form>
+{%endblock%}
