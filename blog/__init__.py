@@ -3,6 +3,8 @@ from datetime import datetime
 from .blueprints.lists import lists_bp
 from .blueprints.home import home_bp
 from .blueprints.tasks import tasks_bp
+from .blueprints.login import login_bp
+from .blueprints.user import user_bp
 
 import os
 
@@ -45,6 +47,12 @@ def create_app(test_config=None):
 
     from .blueprints.tasks import tasks_bp
     app.register_blueprint(tasks_bp)
+
+    from .blueprints.login import login_bp
+    app.register_blueprint(login_bp)
+
+    from .blueprints.user import user_bp
+    app.register_blueprint(user_bp)
 
     return app
 
